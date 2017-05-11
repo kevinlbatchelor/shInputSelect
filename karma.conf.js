@@ -23,26 +23,39 @@ module.exports = function(config) {
             node: {
                 fs: 'empty'
             },
+            entry: {
+                'sh-input-select': './src/sh-input-select.js',
+            },
 
             // Instrument code that isn't test or vendor code.
             module: {
-                loaders: [
+                rules: [
                     {
-                        test: /\.jsx?$/,
-                        include: path.join(__dirname, 'src'),
-                        loader: 'babel'
+                        test: /\.s?css$/,
+                        use: [
+                            { loader: 'style-loader' },
+                            { loader: 'css-loader' },
+                            { loader: 'sass-loader' }
+                        ]
                     },
                     {
-                        test: /\.scss$/,
-                        loaders: ['style', 'css', 'sass']
-                    }
-                ],
-                preLoaders: [
+                        test: /\.jsx?$/,
+                        use: [
+                            { loader: 'babel-loader' }
+                        ],
+                        exclude: /node_modules/,
+                    },
                     {
-                        test: /^((?!\.spec\.).)*\.jsx?$/,
-                        loader: 'isparta',
-                        include: path.join(__dirname, 'src')
-                    }
+                        test: /\.(ttf|eot|svg|woff|woff1|woff2)$/,
+                        use: [
+                            { loader: "url-loader" }]
+                    },
+                    {
+                        test: /\.html$/,
+                        use: [
+                            { loader: "file?name=[name].[ext]" }
+                        ]
+                    },
                 ]
             }
         },

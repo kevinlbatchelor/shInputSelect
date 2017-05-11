@@ -1,6 +1,6 @@
 {
-  "name": "sh-input-select",
-  "version": "0.2.7",
+  "name": "sh-input-select-emvio",
+  "version": "0.4.0",
   "description": "Select input box superhero theme",
   "main": "bin/sh-input-select.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "./node_modules/.bin/karma start",
     "test-watch": "./node_modules/.bin/karma start --no-single-run",
     "coveralls": "./node_modules/.bin/coveralls < ./bin/coverage/lcov/lcov.info",
-    "build": "./node_modules/.bin/webpack -d --config webpack.config.js",
+    "build": "./node_modules/.bin/webpack -p --config webpack.config.js",
     "dev": "./node_modules/.bin/webpack -d --watch --config webpack.config.js",
     "example": "./node_modules/.bin/webpack -d --watch --config webpack.example.config.js"
   },
@@ -45,14 +45,19 @@
     "karma-webpack": "^1.8.0",
     "node-sass": "^3.8.0",
     "phantomjs": "^2.1.7",
+    "react-test-utilities": "^0.1.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.1"
+    "webpack": "^2.4.1"
+  },
+  "peerDependencies": {
+    "lodash": ">=4.14.1",
+    "react": ">=15.4.0",
+    "react-dom": ">=15.4.0"
   },
   "dependencies": {
-    "lodash": "^4.14.1",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "sh-core": "^0.2.0"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "sh-core-emvio": "^0.3.4"
   }
 }
