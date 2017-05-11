@@ -11,7 +11,8 @@ var config2 = {
     },
     multiselect: true,
     idField: 'id',
-    required: true
+    required: true,
+    label: 'Select Ducks'
 };
 
 var config3 = {

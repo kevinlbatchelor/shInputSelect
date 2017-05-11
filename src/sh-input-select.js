@@ -51,6 +51,7 @@ let defaultConfig = {
         return filter(options, { parentId: (option ? option.id : null) });
     },
     required: false,
+    label: 'Select'
 };
 
 let hotKeys = {
@@ -454,7 +455,7 @@ class ShInputSelect extends React.Component {
             other: classNames,
         };
 
-        let inputSelected = 'Select';
+        let inputSelected = this.state.config.label;
         if (this.isMulti()) {
             if (this.state.value.length === 0) {
                 // Don't do anything
