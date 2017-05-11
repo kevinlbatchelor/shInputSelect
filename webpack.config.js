@@ -5,10 +5,10 @@ module.exports = {
         'sh-input-select': './src/index.js',
     },
     output: {
-        path: './bin',
+        path: path.resolve(__dirname, './bin'),
         filename: '[name].js',
         library: '[name]',
-        libraryTarget: 'umd',
+        libraryTarget: 'umd'
     },
     externals: [
         {
@@ -16,38 +16,54 @@ module.exports = {
                 root: 'React',
                 commonjs2: 'react',
                 commonjs: 'react',
-                amd: 'react',
-            },
+                amd: 'react'
+            }
         },
         {
             'react-dom': {
                 root: 'ReactDOM',
                 commonjs2: 'react-dom',
                 commonjs: 'react-dom',
-                amd: 'react-dom',
-            },
+                amd: 'react-dom'
+            }
         },
         {
             lodash: {
                 root: '_',
                 commonjs2: 'lodash',
                 commonjs: 'lodash',
-                amd: 'lodash',
-            },
-        },
+                amd: 'lodash'
+            }
+        }
     ],
     module: {
-        loaders: [
+        rules: [
+            {
+                test: /\.s?css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    { loader: 'sass-loader' }
+                ]
+            },
             {
                 test: /\.jsx?$/,
+                use: [
+                    { loader: 'babel-loader' }
+                ],
                 exclude: /node_modules/,
-                loaders: ['babel-loader']
             },
             {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
+                test: /\.(ttf|eot|svg|woff|woff1|woff2)$/,
+                use: [
+                    { loader: "url-loader" }]
             },
-        ],
-
+            {
+                test: /\.html$/,
+                use: [
+                    { loader: "file?name=[name].[ext]" }
+                ]
+            },
+        ]
     }
 };

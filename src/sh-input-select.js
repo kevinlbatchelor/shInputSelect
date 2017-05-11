@@ -16,7 +16,8 @@ import {
     last,
     concat,
     without,
-    get
+    get,
+    isEmpty
 } from 'lodash';
 import sh from 'sh-core-emvio';
 

@@ -1,6 +1,6 @@
 {
   "name": "sh-input-select-emvio",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Select input box superhero theme",
   "main": "bin/sh-input-select.js",
   "scripts": {
